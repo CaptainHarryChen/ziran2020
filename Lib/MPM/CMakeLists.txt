@@ -12,7 +12,6 @@ if(OPENVDB_FOUND)
   target_compile_options(mpmdev PUBLIC "-Wno-unused-but-set-parameter")
   target_compile_options(mpmdev PUBLIC "-Wno-unused-but-set-variable")
   target_compile_options(mpmdev PUBLIC "-Wno-unused-variable")
-  target_link_libraries(mpmdev spgrid partio ziran openvdb half tbb metis ${CMAKE_THREAD_LIBS_INIT})
+  target_link_libraries(mpmdev spgrid partio ziran openvdb tbb metis ${CMAKE_THREAD_LIBS_INIT})
 
 endif()
-
