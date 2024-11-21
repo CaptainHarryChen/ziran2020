@@ -8,7 +8,7 @@ project(ZIRAN CXX)
 message(STATUS "${CMAKE_BUILD_TYPE} Build")
 
 #############################################################################
-option(ENABLE_AMGCL_CUDA "Use amgcl cuda" ON)
+option(ENABLE_AMGCL_CUDA "Use amgcl cuda" OFF)
 #############################################################################
 
 if (ENABLE_AMGCL_CUDA)
@@ -46,10 +46,10 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/CMake/OptimizeForArchitecture.cmake)
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   # using regular Clang or AppleClang
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -march=native")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall -Wextra -Wno-unused-parameter -march=native")
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
   # using GCC
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall -Werror=all -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -march=native -fno-math-errno")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall -Wextra -Wno-unused-parameter -Wcast-align -Wformat=2 -Winit-self -Wmissing-include-dirs -Woverloaded-virtual -march=native -fno-math-errno")
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Og")
   set(CMAKE_SHARED_LINKER_FLAGS "-Wl,-z,defs")
 
@@ -90,7 +90,7 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
   endif()
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel")
   # using Intel C++
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror=all -Wextra -Wno-unused-parameter -march=native -std=c++17")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-unused-parameter -march=native -std=c++17")
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
   # using Visual Studio C++
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zm1024")
@@ -173,4 +173,3 @@ message("**************************************************")
 
 # build timer
 # set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CMAKE_COMMAND} -E time")
-

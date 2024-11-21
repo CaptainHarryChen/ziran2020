@@ -1,16 +1,18 @@
 #ifndef SIGNAL_HANDLER_H
 #define SIGNAL_HANDLER_H
 #include <map>
+#include <string>
 
 namespace ZIRAN {
 
 extern const std::map<int, std::string> kSignals;
 
-std::map<int, std::string>& gSignals();
+std::map<int, std::string> &gSignals();
 
 // Dump of stack then exit through background worker
 // ALL thanks to this thread at StackOverflow. Pretty much borrowed from:
-// Ref: http://stackoverflow.com/questions/77005/how-to-generate-a-stacktrace-when-my-gcc-c-app-crashes
+// Ref:
+// http://stackoverflow.com/questions/77005/how-to-generate-a-stacktrace-when-my-gcc-c-app-crashes
 void signalHandler(int signal_number);
 
 //
